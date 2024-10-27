@@ -4,7 +4,7 @@ num_lines=${2:-3}
 
 total_lines=$(cat "$1" | wc -l)
 
-if [[ total_lines <= 2 * num_lines ]]; then
+if [[ $((2*num_lines)) -gt total_lines ]]; then
     cat "$1"
 else
     echo "Warning: The file contains more than $((2 * num_lines)) lines."
